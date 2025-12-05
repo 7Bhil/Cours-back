@@ -73,7 +73,7 @@
           </div>
           
           <a 
-            href="mailto:contact@educode.fr?subject=Question Cybersécurité"
+            href="mailto:7bhilal.chitou7@gmail.com?subject=Question Cybersécurité"
             class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700"
           >
             <span class="mr-2">📧</span> Poser une question spécifique
@@ -142,7 +142,7 @@
           </div>
           
           <a 
-            href="https://wa.me/33612345678?text=Bonjour, question sur les réseaux"
+            href="https://wa.me/22998874019?text=Bonjour, question sur les réseaux"
             target="_blank"
             class="inline-flex items-center text-green-600 font-semibold hover:text-green-700"
           >

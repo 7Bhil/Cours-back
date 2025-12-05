@@ -51,13 +51,13 @@
           <h3 class="text-xl font-bold text-gray-900 mb-4">📞 Contact rapide</h3>
           <div class="space-y-3">
             <a 
-              :href="`mailto:contact@educode.fr?subject=Question sur ${technology.name}`"
+              :href="`mailto:7bhilal.chitou7@gmail.com?subject=Question sur ${technology.name}`"
               class="flex items-center justify-center bg-blue-50 hover:bg-blue-100 text-blue-700 py-3 px-4 rounded-lg font-medium transition"
             >
               <span class="mr-2">📧</span> Question par email
             </a>
             <a 
-              :href="`https://wa.me/33612345678?text=Bonjour, j'ai une question sur ${technology.name}`"
+              :href="`https://wa.me/22998874019?text=Bonjour, j'ai une question sur ${technology.name}`"
               target="_blank"
               class="flex items-center justify-center bg-green-50 hover:bg-green-100 text-green-700 py-3 px-4 rounded-lg font-medium transition"
             >

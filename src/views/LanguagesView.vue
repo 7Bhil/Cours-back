@@ -79,13 +79,13 @@
                 
                 <div class="flex space-x-2">
                   <a 
-                    href="mailto:contact@educode.fr?subject=Question sur JavaScript"
+                    href="mailto:7bhilal.chitou7@gmail.com?subject=Question sur JavaScript"
                     class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-4 rounded-lg text-center transition flex items-center justify-center"
                   >
                     <span class="mr-2">📧</span> Email
                   </a>
                   <a 
-                    href="https://wa.me/33612345678?text=Bonjour, j'ai une question sur JavaScript"
+                    href="https://wa.me/22998874019?text=Bonjour, j'ai une question sur JavaScript"
                     target="_blank"
                     class="flex-1 bg-green-100 hover:bg-green-200 text-green-800 py-2 px-4 rounded-lg text-center transition flex items-center justify-center"
                   >
@@ -129,13 +129,13 @@
                 
                 <div class="flex space-x-2">
                   <a 
-                    href="mailto:contact@educode.fr?subject=Question sur Java"
+                    href="mailto:7bhilal.chitou7@gmail.com?subject=Question sur Java"
                     class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-4 rounded-lg text-center transition flex items-center justify-center"
                   >
                     <span class="mr-2">📧</span> Email
                   </a>
                   <a 
-                    href="https://wa.me/33612345678?text=Bonjour, j'ai une question sur Java"
+                    href="https://wa.me/22998874019?text=Bonjour, j'ai une question sur Java"
                     target="_blank"
                     class="flex-1 bg-green-100 hover:bg-green-200 text-green-800 py-2 px-4 rounded-lg text-center transition flex items-center justify-center"
                   >
@@ -179,13 +179,13 @@
                 
                 <div class="flex space-x-2">
                   <a 
-                    href="mailto:contact@educode.fr?subject=Question sur C++"
+                    href="mailto:7bhilal.chitou7@gmail.com?subject=Question sur C++"
                     class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-4 rounded-lg text-center transition flex items-center justify-center"
                   >
                     <span class="mr-2">📧</span> Email
                   </a>
                   <a 
-                    href="https://wa.me/33612345678?text=Bonjour, j'ai une question sur C++"
+                    href="https://wa.me/22998874019?text=Bonjour, j'ai une question sur C++"
                     target="_blank"
                     class="flex-1 bg-green-100 hover:bg-green-200 text-green-800 py-2 px-4 rounded-lg text-center transition flex items-center justify-center"
                   >
@@ -229,13 +229,13 @@
                 
                 <div class="flex space-x-2">
                   <a 
-                    href="mailto:contact@educode.fr?subject=Question sur Python"
+                    href="mailto:7bhilal.chitou7@gmail.com?subject=Question sur Python"
                     class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-4 rounded-lg text-center transition flex items-center justify-center"
                   >
                     <span class="mr-2">📧</span> Email
                   </a>
                   <a 
-                    href="https://wa.me/33612345678?text=Bonjour, j'ai une question sur Python"
+                    href="https://wa.me/22998874019?text=Bonjour, j'ai une question sur Python"
                     target="_blank"
                     class="flex-1 bg-green-100 hover:bg-green-200 text-green-800 py-2 px-4 rounded-lg text-center transition flex items-center justify-center"
                   >
@@ -279,13 +279,13 @@
                 
                 <div class="flex space-x-2">
                   <a 
-                    href="mailto:contact@educode.fr?subject=Question sur Ruby"
+                    href="mailto:7bhilal.chitou7@gmail.com?subject=Question sur Ruby"
                     class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-4 rounded-lg text-center transition flex items-center justify-center"
                   >
                     <span class="mr-2">📧</span> Email
                   </a>
                   <a 
-                    href="https://wa.me/33612345678?text=Bonjour, j'ai une question sur Ruby"
+                    href="https://wa.me/22998874019?text=Bonjour, j'ai une question sur Ruby"
                     target="_blank"
                     class="flex-1 bg-green-100 hover:bg-green-200 text-green-800 py-2 px-4 rounded-lg text-center transition flex items-center justify-center"
                   >
@@ -317,7 +317,7 @@
               </button>
               
               <a 
-                href="mailto:contact@educode.fr?subject=Suggestion de nouveau langage"
+                href="mailto:7bhilal.chitou7@gmail.com?subject=Suggestion de nouveau langage"
                 class="block text-center text-blue-600 hover:text-blue-700 font-medium items-center justify-center"
               >
                 <span class="mr-2">📝</span> Proposer un langage
@@ -410,7 +410,7 @@
                 <span class="mr-2">📧</span> Poser une question
               </router-link>
               <a 
-                href="https://wa.me/33612345678"
+                href="https://wa.me/22998874019"
                 target="_blank"
                 class="bg-green-500 hover:bg-green-600 text-white py-3 px-8 rounded-xl font-semibold transition-all duration-300 inline-flex items-center justify-center shadow-lg hover:shadow-xl"
               >

@@ -28,7 +28,7 @@
           
           <div class="space-y-4">
             <a 
-              href="mailto:contact@educode.fr"
+              href="mailto:7bhilal.chitou7@gmail.com"
               class="btn-primary w-full text-center block"
             >
               ✉️ Envoyer un email
@@ -56,7 +56,7 @@
           
           <div class="space-y-4">
             <a 
-              href="https://wa.me/33612345678?text=Bonjour%20EduCode,%20j'ai%20une%20question"
+              href="https://wa.me/22998874019?text=Bonjour%20EduCode,%20j'ai%20une%20question"
               target="_blank"
               class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-lg text-center block transition"
             >
@@ -257,9 +257,9 @@ Newsletter: ${this.form.newsletter ? 'Oui' : 'Non'}
 
 Message:
 ${this.form.message}`;
-      
-      window.location.href = `mailto:contact@educode.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      
+
+      window.location.href = `mailto:7bhilal.chitou7@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
       // Réinitialiser le formulaire
       this.form = {
         name: '',

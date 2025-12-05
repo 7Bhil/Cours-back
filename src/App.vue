@@ -69,7 +69,7 @@
           <!-- Bouton contact mobile -->
           <div class="md:hidden flex items-center space-x-4">
             <a 
-              href="https://wa.me/33612345678"
+              href="https://wa.me/22998874019"
               target="_blank"
               class="bg-green-500 text-white p-2 rounded-lg shadow hover:shadow-lg transition"
             >
@@ -122,14 +122,14 @@
             <ul class="space-y-3">
               <li class="flex items-center space-x-3">
                 <span class="text-blue-400">📧</span>
-                <a href="mailto:contact@educode.fr" class="text-gray-300 hover:text-white transition">
-                  contact@educode.fr
+                <a href="mailto:7bhilal.chitou7@gmail.com" class="text-gray-300 hover:text-white transition">
+                  7bhilal.chitou7@gmail.com
                 </a>
               </li>
               <li class="flex items-center space-x-3">
                 <span class="text-green-400">💬</span>
-                <a href="https://wa.me/33612345678" target="_blank" class="text-gray-300 hover:text-white transition">
-                  +33 6 12 34 56 78
+                <a href="https://wa.me/2290198874019" target="_blank" class="text-gray-300 hover:text-white transition">
+                  +229 01 98 87 40 19
                 </a>
               </li>
             </ul>
