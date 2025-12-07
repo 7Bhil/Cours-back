@@ -654,18 +654,18 @@ public class Rectangle extends FormeGeometrique implements Forme {
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Cheatsheets Java</h3>
+                    <h3 class="font-semibold text-gray-900 mb-1">Quiz  Java</h3>
                     <p class="text-sm text-gray-600 mb-2">Question rapides pour évaluer vos connaissances</p>
                   </div>
                 </div>
+                <RouterLink to="/javatest">
                 <Button
                 to="/javatest"
                   class="w-full bg-red-600 text-white py-2.5 rounded-lg font-medium hover:bg-red-700 transition-colors focus:outline-none"
                 >
-                  <RouterLink to="/javatest">
                     Passer le teste de niveau
-                  </RouterLink>
                 </Button>
+                </RouterLink>
               </div>
             </div>
           </section>
@@ -807,9 +807,11 @@ public class Rectangle extends FormeGeometrique implements Forme {
                   </label>
                 </div>
               </div>
-              <button @click="checkQuiz" class="w-full bg-red-600 text-white py-2.5 rounded-lg font-medium hover:bg-red-700 transition-colors text-sm focus:outline-none">
-                Vérifier la réponse
-              </button>
+                <RouterLink to="/javatest">
+                    <button @click="checkQuiz" class="w-full bg-red-600 text-white py-2.5 rounded-lg font-medium hover:bg-red-700 transition-colors text-sm focus:outline-none">
+                        Vérifier la réponse et passez le test
+                      </button>
+                </RouterLink>
             </div>
 
             <!-- Conseils -->
