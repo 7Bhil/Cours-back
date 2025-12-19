@@ -56,8 +56,8 @@
           <button @click="scrollTo('pratique')" class="text-sm font-medium text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors focus:outline-none">
             Exercices
           </button>
-          <button @click="scrollTo('contact')" class="text-sm font-medium text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors focus:outline-none">
-            Contact
+          <button @click="scrollTo('explorer')" class="text-sm font-medium text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors focus:outline-none">
+            Explorer plus
           </button>
         </nav>
       </div>
@@ -448,50 +448,115 @@ const ville = personne?.adresse?.ville;</pre>
               </div>
             </div>
           </section>
+
+          <!-- Explorer plus -->
+          <section id="explorer" class="scroll-mt-32">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Prêt à aller plus loin ?</h2>
+            
+            <div class="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg p-8">
+              <div class="text-center">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Découvrez notre formation complète</h3>
+                <p class="text-gray-600 mb-6">
+                  Apprenez JavaScript de A à Z avec un parcours structuré, des projets concrets et un accompagnement personnalisé.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                  <div class="bg-white rounded-lg p-4 border border-gray-200">
+                    <div class="text-blue-600 font-semibold mb-2">🎯</div>
+                    <h4 class="font-semibold text-gray-900 mb-2">Parcours guidé</h4>
+                    <p class="text-sm text-gray-600">20 chapitres progressifs avec exercices</p>
+                  </div>
+                  <div class="bg-white rounded-lg p-4 border border-gray-200">
+                    <div class="text-green-600 font-semibold mb-2">🚀</div>
+                    <h4 class="font-semibold text-gray-900 mb-2">Projets réels</h4>
+                    <p class="text-sm text-gray-600">10 applications complètes à réaliser</p>
+                  </div>
+                  <div class="bg-white rounded-lg p-4 border border-gray-200">
+                    <div class="text-purple-600 font-semibold mb-2">👨‍🏫</div>
+                    <h4 class="font-semibold text-gray-900 mb-2">Support expert</h4>
+                    <p class="text-sm text-gray-600">Réponses à vos questions en 24h</p>
+                  </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button 
+                    @click="showInfo('formation')"
+                    class="bg-yellow-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-colors"
+                  >
+                    Découvrir la formation
+                  </button>
+                  <button 
+                    @click="showInfo('contact')"
+                    class="bg-white text-gray-700 border border-gray-300 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                  >
+                    Poser une question
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
 
         <!-- Sidebar -->
         <div class="lg:col-span-1">
           <div class="sticky top-32 space-y-6">
-            <!-- Contact -->
-            <div id="contact" class="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 mb-4">Besoin d'aide ?</h3>
+            <!-- Explorer plus -->
+            <div class="bg-white border border-gray-200 rounded-lg p-6">
+              <h3 class="text-lg font-semibold text-gray-900 mb-4">À découvrir</h3>
               <p class="text-sm text-gray-600 mb-4">
-                Posez vos questions sur JavaScript, nous sommes là pour vous aider.
+                Des ressources pour approfondir vos connaissances :
               </p>
               <div class="space-y-3">
-                <a 
-                  href="mailto:7bhilal.chitou7@gmail.com?subject=Question sur JavaScript"
-                  class="flex items-center justify-center bg-gray-100 text-gray-700 py-2.5 px-4 rounded-lg font-medium hover:bg-gray-200 transition-colors text-sm focus:outline-none focus:ring-2 focus:ring-gray-300"
+                <button 
+                  @click="showInfo('cours')"
+                  class="w-full flex items-center justify-between bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 text-blue-700 py-3 px-4 rounded-lg font-medium hover:from-blue-100 hover:to-blue-200 transition-all group"
                 >
-                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    <span>Cours complet</span>
+                  </div>
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                   </svg>
-                  Envoyer un email
-                </a>
+                </button>
                 
-                <a 
-                  href="https://wa.me/22998874019?text=Bonjour! J'ai une question sur JavaScript"
-                  target="_blank"
-                  class="flex items-center justify-center bg-green-500 text-white py-2.5 px-4 rounded-lg font-medium hover:bg-green-600 transition-colors text-sm focus:outline-none focus:ring-2 focus:ring-green-300"
+                <button 
+                  @click="showInfo('projets')"
+                  class="w-full flex items-center justify-between bg-gradient-to-r from-green-50 to-green-100 border border-green-200 text-green-700 py-3 px-4 rounded-lg font-medium hover:from-green-100 hover:to-green-200 transition-all group"
                 >
-                  <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.032 5.99c-3.554 0-6.447 2.895-6.447 6.447 0 1.416.458 2.727 1.237 3.793l-.796 2.658 2.739-.796c1.041.71 2.315 1.125 3.704 1.125 3.554 0 6.447-2.895 6.447-6.447s-2.894-6.447-6.447-6.447zm0 11.773c-1.083 0-2.104-.281-2.989-.772l-2.146.625.625-2.146c-.531-.937-.833-2.02-.833-3.146 0-2.947 2.396-5.343 5.343-5.343 2.947 0 5.343 2.396 5.343 5.343 0 2.947-2.396 5.343-5.343 5.343z"/>
-                    <path d="M14.692 13.393c-.25-.125-1.49-.735-1.721-.816-.23-.082-.398-.125-.566.125-.168.25-.648.816-.794.99-.147.172-.293.188-.543.063-.25-.125-1.054-.416-2.01-1.238-.75-.668-1.256-1.49-1.406-1.74-.148-.25-.015-.387.111-.51.114-.114.25-.293.375-.458.125-.166.166-.25.25-.416.082-.166.042-.312-.021-.458-.063-.146-.562-1.366-.77-1.886-.208-.52-.417-.437-.562-.447-.146-.01-.312-.01-.478-.01s-.438.063-.66.312c-.22.25-.854.832-.854 2.022 0 1.189.896 2.397 1.022 2.553.125.157 1.741 2.647 4.245 3.697 2.504 1.05 2.504.688 2.952.646.448-.042 1.449-.593 1.656-1.177.208-.583.208-1.093.146-1.177-.063-.083-.23-.146-.48-.271z"/>
+                  <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                    <span>Projets avancés</span>
+                  </div>
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                   </svg>
-                  WhatsApp (Questions)
-                </a>
+                </button>
                 
-                <a 
-                  href="https://wa.me/22998874019?text=Bonjour! Je souhaite prendre un cours particulier de JavaScript"
-                  target="_blank"
-                  class="flex items-center justify-center bg-blue-600 text-white py-2.5 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+                <button 
+                  @click="showInfo('exercices')"
+                  class="w-full flex items-center justify-between bg-gradient-to-r from-purple-50 to-purple-100 border border-purple-200 text-purple-700 py-3 px-4 rounded-lg font-medium hover:from-purple-100 hover:to-purple-200 transition-all group"
                 >
-                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                  <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                    <span>Exercices interactifs</span>
+                  </div>
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                   </svg>
-                  Cours particulier (WhatsApp)
-                </a>
+                </button>
+              </div>
+              
+              <div class="mt-4 pt-4 border-t border-gray-200">
+                <p class="text-xs text-gray-500 text-center">
+                  Cliquez pour découvrir ce que nous proposons
+                </p>
               </div>
             </div>
 
@@ -639,6 +704,21 @@ export default {
     // Méthode pour afficher des notifications
     showNotification(message, type = 'info') {
       alert(message);
+    },
+    
+    // Méthode pour montrer des infos sur les options
+    showInfo(type) {
+      const messages = {
+        cours: "📚 Notre cours complet JavaScript comprend :\n• 20 chapitres progressifs\n• 100+ exercices pratiques\n• 5 projets concrets\n• Accès à une communauté d'entraide\n• Certificat de fin de formation\n\nIntéressé(e) ? Contactez-nous pour en savoir plus !",
+        projets: "🚀 Projets avancés à réaliser :\n• Application météo en temps réel\n• To-Do List avec stockage local\n• Calculateur d'IMC interactif\n• Jeu du pendu en JavaScript\n• Générateur de citations aléatoires\n• Portfolio personnel dynamique\n\nParfait pour mettre en pratique vos connaissances !",
+        exercices: "🧠 Exercices interactifs :\n• Quiz avec correction immédiate\n• Challenges de code en ligne\n• Exercices corrigés étape par étape\n• Tests de niveau personnalisés\n• Mini-projets guidés\n\nIdéal pour renforcer votre apprentissage !",
+        formation: "🎓 Formation complète JavaScript :\n\n✅ Parcours structuré de A à Z\n✅ 50+ heures de contenu\n✅ 10 projets pratiques\n✅ Support expert illimité\n✅ Accès à vie\n✅ Certificat de réussite\n\nContactez-nous pour les modalités et tarifs !",
+        contact: "💬 Vous avez une question ?\n\nNous sommes là pour vous aider :\n• Choix de la formation adaptée\n• Difficultés techniques\n• Questions sur JavaScript\n• Projets personnels\n\nEnvoyez-nous un message :\n📧 7bhilal.chitou7@gmail.com\n📱 WhatsApp : +229 98 87 40 19"
+      };
+      
+      if (messages[type]) {
+        alert(messages[type]);
+      }
     },
     
     // Initialiser le défilement depuis l'URL

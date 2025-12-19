@@ -7,13 +7,15 @@ const CybersecurityView = () => import('../views/CybersecurityView.vue')
 const ContactView = () => import('../views/ContactView.vue')
 // Ajoutez ces imports pour les pages détaillées
 const TechnologyView = () => import('../views/TechnologyView.vue')
-const Js = () => import('../views/JavaScript.vue')
-const Java = () => import('../views/Java.vue')
-const Javatest = () => import('../views/Javatest.vue')
+const Js = () => import('../views/lANGUAGE/JS/JavaScript.vue')
+const Java = () => import('../views/lANGUAGE/Java/Java.vue')
+const Javatest = () => import('../views/lANGUAGE/Java/Javatest.vue')
+const Rubytest = () => import('../views/lANGUAGE/Ruby/Rubytest.vue')
+const JSCours = () => import('../views/lANGUAGE/JS/CoursJavaScript.vue')
 /*const Python = () => import('../views/Python.vue')
 const Cpp = () => import('../views/Cpp.vue')
 const Php = () => import('../views/Php.vue')*/
-const Ruby = () => import('../views/Ruby.vue')
+const Ruby = () => import('../views/lANGUAGE/Ruby/Ruby.vue')
 const routes = [
   {
     path: '/',
@@ -31,6 +33,11 @@ const routes = [
     component: Js
   },
   {
+    path: '/cours/javascript',
+    name: 'CoursJavaScript',
+    component: JSCours
+  },
+  {
     path: '/java',
     name: 'java',
     component: Java
@@ -39,6 +46,11 @@ const routes = [
     path: '/javatest',
     name: 'javatest',
     component: Javatest
+  },
+  {
+    path: '/rubytest',
+    name: 'rubytest',
+    component: Rubytest
   },/*
   {
     path: '/python',
