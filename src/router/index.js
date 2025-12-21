@@ -33,7 +33,7 @@ const routes = [
     component: Js
   },
   {
-    path: '/cours/javascript',
+    path: '/javascript/cours',
     name: 'CoursJavaScript',
     component: JSCours
   },

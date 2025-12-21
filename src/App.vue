@@ -12,8 +12,8 @@
               </svg>
             </div>
             <div class="flex flex-col">
-              <span class="text-xl font-bold text-gray-900">Bhil$</span>
-              <span class="text-xs text-gray-500">Formation Pro</span>
+              <span class="text-xl font-bold text-gray-900">Bhil<span class="text-blue-600 text-xl">$</span></span>
+              <span class="text-3xs text-gray-500">Bhil$ && Jjboy</span>
             </div>
           </router-link>
 
