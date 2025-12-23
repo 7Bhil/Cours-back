@@ -1,4 +1,16 @@
-<template>
+
+	components: {
+		C,
+	},
+	components: {
+		C,
+	},
+	components: {
+		C,
+	},
+	components: {
+		C,
+	},<template>
   <div class="languages">
     <!-- Hero Section -->
     <section class="relative py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
@@ -137,11 +149,20 @@
 <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
   <div class="flex items-center mb-4">
     <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-      <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m5 2v-1a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2h-6a2 2 0 01-2-2v-1"/>
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2h-2"/>
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h4m-4 4h4M8 17h2"/>
-      </svg>
+      <svg class="w-24 h-24 text-black" viewBox="0 0 128 128" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hexagon background -->
+<path fill="#00599C" d="M64 4L118 32V96L64 124L10 96V32L64 4Z"/>
+
+  <!-- Letter C -->
+  <path fill="#ffffff" d="M60 30c-18.2 0-33 14.8-33 33s14.8 33 33 33c7.6 0 14.6-2.6 20.1-7l-6.2-8.1c-3.7 2.7-8.4 4.3-13.9 4.3-12.4 0-22.4-10-22.4-22.4S47.6 40.4 60 40.4c5.5 0 10.2 1.6 13.9 4.3l6.2-8.1C74.6 32.6 67.6 30 60 30Z"/>
+
+  <!-- Plus 1 -->
+  <path fill="#ffffff" d="M82 58h6v-6h6v6h6v6h-6v6h-6v-6h-6z"/>
+
+  <!-- Plus 2 (horizontal alignment) -->
+  <path fill="#ffffff" d="M98 58h6v-6h6v6h6v6h-6v6h-6v-6h-6z"/>
+</svg>
+
     </div>
     <h3 class="text-xl font-bold text-gray-900">C++</h3>
   </div>
@@ -157,12 +178,12 @@
   </div>
   
   <div class="space-y-2">
-    <router-link 
-      :to="{ name: 'technology', params: { tech: 'cpp' }}"
+    <RouterLink
+      to="/cpp"
       class="block w-full bg-blue-600 text-white py-2.5 px-4 rounded-lg text-center font-medium hover:bg-blue-700 transition-colors"
     >
       Voir les ressources
-    </router-link>
+    </RouterLink>
     
     <div class="grid grid-cols-2 gap-2">
       <a 
@@ -185,11 +206,8 @@
 <!-- C -->
 <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
   <div class="flex items-center mb-4">
-    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-      <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-        <circle cx="12" cy="12" r="2" stroke-width="1.5"/>
-      </svg>
+    <div class="w-12 h-12 bg-blue-100 text-4xl font-bold rounded-lg flex items-center justify-center mr-4">
+        C
     </div>
     <h3 class="text-xl font-bold text-gray-900">C</h3>
   </div>
@@ -206,7 +224,7 @@
   
   <div class="space-y-2">
     <router-link 
-      :to="{ name: 'technology', params: { tech: 'c' }}"
+      to="/C"
       class="block w-full bg-blue-600 text-white py-2.5 px-4 rounded-lg text-center font-medium hover:bg-blue-700 transition-colors"
     >
       Voir les ressources
@@ -233,8 +251,8 @@
           <!-- Python -->
           <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
             <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-                <svg class="w-7 h-7 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+              <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                <svg class="w-7 h-7 text-green-600" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
                 </svg>
               </div>
@@ -253,7 +271,7 @@
             
             <div class="space-y-2">
               <router-link 
-                :to="{ name: 'technology', params: { tech: 'python' }}"
+                to="/python"
                 class="block w-full bg-blue-600 text-white py-2.5 px-4 rounded-lg text-center font-medium hover:bg-blue-700 transition-colors"
               >
                 Voir les ressources
@@ -447,6 +465,7 @@
 
 <script>
 import { RouterLink } from 'vue-router';
+import C from '@/views/lANGUAGE/C/C.vue'
 
 export default {
   name: 'LanguagesView'

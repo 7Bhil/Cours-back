@@ -7,20 +7,35 @@ const CybersecurityView = () => import('../views/CybersecurityView.vue')
 const ContactView = () => import('../views/ContactView.vue')
 // Ajoutez ces imports pour les pages détaillées
 const TechnologyView = () => import('../views/TechnologyView.vue')
+const Login = () => import('../views/user/Login.vue')
+const Register = () => import('../views/user/Register.vue')
 const Js = () => import('../views/lANGUAGE/JS/JavaScript.vue')
 const Java = () => import('../views/lANGUAGE/Java/Java.vue')
+const JavaCours = () => import('../views/lANGUAGE/Java/CoursJava.vue')
 const Javatest = () => import('../views/lANGUAGE/Java/Javatest.vue')
-const Rubytest = () => import('../views/lANGUAGE/Ruby/Rubytest.vue')
 const JSCours = () => import('../views/lANGUAGE/JS/CoursJavaScript.vue')
-/*const Python = () => import('../views/Python.vue')
-const Cpp = () => import('../views/Cpp.vue')
-const Php = () => import('../views/Php.vue')*/
+const Rubytest = () => import('../views/lANGUAGE/Ruby/Rubytest.vue')
+const Python = () => import('../views/lANGUAGE/Python/Python.vue')
+const Pythoncours = () => import('../views/lANGUAGE/Python/CoursPython.vue')
+const C = () => import('../views/lANGUAGE/C/C.vue')
+const Cpp = () => import('../views/lANGUAGE/C++/C++.vue')
+/*const Php = () => import('../views/lANGUAGE/Php/Php.vue')*/
 const Ruby = () => import('../views/lANGUAGE/Ruby/Ruby.vue')
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
   },
   {
     path: '/langages',
@@ -43,6 +58,11 @@ const routes = [
     component: Java
   },
   {
+    path: '/java/cours',
+    name: 'CoursJava',
+    component: JavaCours
+  },
+  {
     path: '/javatest',
     name: 'javatest',
     component: Javatest
@@ -51,17 +71,27 @@ const routes = [
     path: '/rubytest',
     name: 'rubytest',
     component: Rubytest
-  },/*
+  },
   {
     path: '/python',
     name: 'python',
     component: Python
   },
   {
+    path: '/python/cours',
+    name: 'CoursPython',
+    component: Pythoncours
+  },
+  {
+    path: '/c',
+    name: 'c',
+    component: C
+  },
+  {
     path: '/cpp',
     name: 'cpp',
     component: Cpp
-  },*/
+  },
   {
     path: '/ruby',
     name: 'ruby',
