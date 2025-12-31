@@ -1,4 +1,3 @@
- 'EOF'
 """
 Django settings for backend project.
 """
@@ -121,4 +120,50 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8080",
 ]
 CORS_ALLOW_ALL_ORIGINS = True
-EOF
+
+# Ajoute 'rest_framework' et 'rest_framework_simplejwt' à INSTALLED_APPS
+INSTALLED_APPS = [
+    # ...
+    'rest_framework',  # AJOUTE
+    'rest_framework_simplejwt',  # AJOUTE
+    # ...
+]
+
+# Configuration Django REST Framework
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',  # Pour l'inscription/connexion
+    ),
+}
+
+# Configuration JWT
+from datetime import timedelta
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+}
+# Ajoute en bas de settings.py
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+        'api': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+}
