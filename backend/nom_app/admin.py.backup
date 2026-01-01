@@ -1,0 +1,82 @@
+from django.contrib import admin
+from .models import ProgrammingLanguage, LanguageChapter, LanguageLesson, UserLanguageProgress, UserAchievement
+
+# Enregistrement des modèles pour l'admin
+@admin.register(ProgrammingLanguage)
+class ProgrammingLanguageAdmin(admin.ModelAdmin):
+    list_display = ['name', 'slug', 'icon', 'color', 'difficulty', 'created_at']
+    list_filter = ['difficulty', 'created_at']
+    search_fields = ['name', 'description']
+    prepopulated_fields = {'slug': ('name',)}
+    ordering = ['name']
+
+@admin.register(LanguageChapter)
+class LanguageChapterAdmin(admin.ModelAdmin):
+    list_display = ['title', 'language', 'order', 'created_at']
+    list_filter = ['language', 'created_at']
+    search_fields = ['title', 'description']
+    prepopulated_fields = {'slug': ('title',)}
+    ordering = ['language', 'order']
+# backend/nom_app/admin.py - VERSION CORRECTE
+from django.contrib import admin
+
+# NE PAS IMPORTER LES MODÈLES ICI
+# On va les importer dans register() pour éviter les imports circulaires
+
+def register_admin():
+    """Fonction pour enregistrer les modèles dans l'admin"""
+    from .models import (
+        ProgrammingLanguage, LanguageChapter, LanguageLesson,
+        UserLanguageProgress, UserAchievement,
+        UserChapterProgress, UserQuizAttempt
+    )
+    
+    @admin.register(ProgrammingLanguage)
+    class ProgrammingLanguageAdmin(admin.ModelAdmin):
+        list_display = ('name', 'slug', 'difficulty', 'created_at')
+        list_filter = ('difficulty', 'created_at')
+        search_fields = ('name', 'description')
+        prepopulated_fields = {'slug': ('name',)}
+    
+    @admin.register(LanguageChapter)
+    class LanguageChapterAdmin(admin.ModelAdmin):
+        list_display = ('title', 'language', 'order', 'created_at')
+        list_filter = ('language',)
+        search_fields = ('title', 'description')
+        prepopulated_fields = {'slug': ('title',)}
+    
+    @admin.register(LanguageLesson)
+    class LanguageLessonAdmin(admin.ModelAdmin):
+        list_display = ('title', 'chapter', 'order', 'duration_minutes', 'points')
+        list_filter = ('chapter__language',)
+        search_fields = ('title', 'content')
+        prepopulated_fields = {'slug': ('title',)}
+    
+    @admin.register(UserLanguageProgress)
+    class UserLanguageProgressAdmin(admin.ModelAdmin):
+        list_display = ('user', 'language', 'completed_count', 'total_lessons', 
+                       'completion_percentage', 'last_accessed')
+        list_filter = ('language',)
+        search_fields = ('user__username', 'language__name')
+    
+    @admin.register(UserAchievement)
+    class UserAchievementAdmin(admin.ModelAdmin):
+        list_display = ('user', 'name', 'language', 'unlocked_at')
+        list_filter = ('language', 'unlocked_at')
+        search_fields = ('user__username', 'name')
+    
+    @admin.register(UserChapterProgress)
+    class UserChapterProgressAdmin(admin.ModelAdmin):
+        list_display = ('user', 'language', 'level_index', 'chapter_index', 
+                       'completed', 'unlocked', 'score')
+        list_filter = ('language', 'completed', 'unlocked')
+        search_fields = ('user__username', 'chapter_title')
+    
+    @admin.register(UserQuizAttempt)
+    class UserQuizAttemptAdmin(admin.ModelAdmin):
+        list_display = ('user', 'chapter_progress', 'score', 'passed', 'created_at')
+        list_filter = ('passed', 'created_at')
+        search_fields = ('user__username',)
+
+# Appeler la fonction pour enregistrer
+register_admin()

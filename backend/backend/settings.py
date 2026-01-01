@@ -5,6 +5,7 @@ Django settings for backend project.
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+from datetime import timedelta
 
 load_dotenv()
 
@@ -21,16 +22,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # Apps tierces
     'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
+    
+    # Apps locales
     'users',
     'predictions',
     'api',
+    'nom_app',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # PREMIER
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -72,6 +78,10 @@ DATABASES = {
     }
 }
 
+# POUR DÉVELOPPEMENT - Désactivez les validateurs de mot de passe
+AUTH_PASSWORD_VALIDATORS = []  # Vide pour le développement
+"""
+Si vous voulez les réactiver plus tard :
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -86,6 +96,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+"""
 
 LANGUAGE_CODE = 'fr-fr'
 TIME_ZONE = 'Europe/Paris'
@@ -95,7 +106,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Utilisateur personnalisé (TEMPORAIREMENT COMMENTÉ)
+# Utilisateur personnalisé - DÉCOMMENTEZ quand votre modèle CustomUser sera prêt
 # AUTH_USER_MODEL = 'users.CustomUser'
 
 # Django REST Framework
@@ -104,8 +115,16 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        'rest_framework.permissions.AllowAny',  # Important pour register/login
     ),
+}
+
+# Configuration JWT
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
 }
 
 MEDIA_URL = '/media/'
@@ -119,4 +138,25 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
     "http://127.0.0.1:8080",
 ]
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True  # Pour développement
+
+# Configuration des logs
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+        'api': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+}
