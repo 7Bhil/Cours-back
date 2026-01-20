@@ -9,7 +9,7 @@ from rest_framework_simplejwt.exceptions import TokenError
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'email')
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'date_joined', 'is_superuser')
 
 class RegisterSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=True)
@@ -64,7 +64,31 @@ class ProgressSerializer(serializers.ModelSerializer):
         read_only_fields = ('user', 'updated_at')
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'] = serializers.EmailField(required=False)
+        self.fields['username'] = serializers.CharField(required=False)
+
     def validate(self, attrs):
-        data = super().validate(attrs)
+        # Support login by email
+        if 'email' in attrs and 'username' not in attrs:
+            email = attrs.get('email')
+            try:
+                user = User.objects.get(email=email)
+                attrs['username'] = user.username
+            except User.DoesNotExist:
+                raise serializers.ValidationError({"detail": "No active account found with the given credentials"})
+            except User.MultipleObjectsReturned:
+                 raise serializers.ValidationError({"detail": "Multiple accounts found with this email"})
+
+        # Ensure password is provided
+        if 'password' not in attrs:
+             raise serializers.ValidationError({"password": "Password is required"})
+
+        try:
+            data = super().validate(attrs)
+        except TokenError as e:
+            raise serializers.ValidationError({"detail": str(e)})
+
         data['user'] = UserSerializer(self.user).data
         return data

@@ -63,12 +63,37 @@ class ProgressView(APIView):
         if not language:
             return Response({'error': 'Language required'}, status=400)
 
-        progress, created = UserProgress.objects.update_or_create(
+        # Try to get existing progress
+        progress, created = UserProgress.objects.get_or_create(
             user=request.user,
             language=language,
-            defaults={'progress_data': progress_data}
+            defaults={'progress_data': {}}
         )
+        
+        # Merge existing data with new data
+        if not created and progress.progress_data:
+            current_data = progress.progress_data
+            if isinstance(current_data, dict) and isinstance(progress_data, dict):
+                current_data.update(progress_data)
+                progress.progress_data = current_data
+            else:
+                progress.progress_data = progress_data
+        else:
+            progress.progress_data = progress_data
+            
+        progress.save()
         return Response({'success': True, 'message': 'Progress saved'})
+
+    def get(self, request):
+        progress_list = UserProgress.objects.filter(user=request.user)
+        data = []
+        for p in progress_list:
+            data.append({
+                'language': p.language,
+                'progress_data': p.progress_data,
+                'updated_at': p.updated_at
+            })
+        return Response(data)
 
 class ProgressLoadView(APIView):
     permission_classes = (IsAuthenticated,)
