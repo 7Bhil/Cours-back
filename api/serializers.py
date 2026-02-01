@@ -92,3 +92,10 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 
         data['user'] = UserSerializer(self.user).data
         return data
+
+class AdminUserProgressSerializer(serializers.ModelSerializer):
+    progress = ProgressSerializer(many=True, read_only=True)
+    
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'date_joined', 'is_superuser', 'progress')

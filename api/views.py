@@ -1,10 +1,10 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken, AccessToken
-from .serializers import UserSerializer, RegisterSerializer, TaskSerializer, CustomTokenObtainPairSerializer, LogoutSerializer
+from .serializers import UserSerializer, RegisterSerializer, TaskSerializer, CustomTokenObtainPairSerializer, LogoutSerializer, AdminUserProgressSerializer
 from .models import Task, UserProgress
 
 class CustomLoginView(TokenObtainPairView):
@@ -104,3 +104,12 @@ class ProgressLoadView(APIView):
             return Response(progress.progress_data)
         except UserProgress.DoesNotExist:
             return Response({})
+
+class AdminUserProgressView(APIView):
+    permission_classes = (IsAdminUser,)
+
+    def get(self, request):
+        from django.contrib.auth.models import User
+        users = User.objects.all().prefetch_related('progress')
+        serializer = AdminUserProgressSerializer(users, many=True)
+        return Response(serializer.data)
