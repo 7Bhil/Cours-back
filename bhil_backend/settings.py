@@ -92,12 +92,14 @@ DATABASES = {
     }
 }
 
-# Use DATABASE_URL from environment if available (Render)
-if env('DATABASE_URL', default=None):
+# Use DATABASE_URL from environment if available (Neon / PostgreSQL / Render)
+DATABASE_URL = env('DATABASE_URL', default=None)
+if DATABASE_URL:
     DATABASES['default'] = dj_database_url.config(
-        default=env('DATABASE_URL'),
+        default=DATABASE_URL,
         conn_max_age=600,
         conn_health_checks=True,
+        ssl_require=True,
     )
 
 

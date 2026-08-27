@@ -1,29 +1,22 @@
-from django.contrib.auth.models import User
+import os
+from django.contrib.auth import get_user_model
 
 def ensure_admin_exists(stdout=None, style=None):
-    email = "7bhilal.chitou7@gmail.com"
-    username = "7bhilal.chitou7"
-    password = "Bh7777777"
+    User = get_user_model()
+    username = os.environ.get("ADMIN_USERNAME", "admin")
+    password = os.environ.get("ADMIN_PASSWORD", "admin123")
+    email = os.environ.get("ADMIN_EMAIL", "admin@example.com")
 
-    # Check for existing user with this email
-    try:
-        user = User.objects.get(email=email)
-        if stdout and style:
-            stdout.write(style.WARNING(f'User with email {email} found. Deleting...'))
-        user.delete()
-    except User.DoesNotExist:
-        pass
-    
-    # Check if username exists
     try:
         user = User.objects.get(username=username)
+        user.set_password(password)
+        user.is_superuser = True
+        user.is_staff = True
+        user.save()
         if stdout and style:
-            stdout.write(style.WARNING(f'User with username {username} found. Deleting...'))
-        user.delete()
+            stdout.write(style.SUCCESS(f'Superuser {username} mis à jour avec le mot de passe spécifié.'))
     except User.DoesNotExist:
-        pass
+        User.objects.create_superuser(username=username, email=email, password=password)
+        if stdout and style:
+            stdout.write(style.SUCCESS(f'Superuser {username} créé avec succès.'))
 
-    # Create the superuser
-    User.objects.create_superuser(username=username, email=email, password=password)
-    if stdout and style:
-        stdout.write(style.SUCCESS(f'Successfully created superuser {username}'))
