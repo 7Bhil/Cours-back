@@ -66,24 +66,26 @@ class ProgressSerializer(serializers.ModelSerializer):
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['email'] = serializers.EmailField(required=False)
+        self.fields['email'] = serializers.CharField(required=False)
         self.fields['username'] = serializers.CharField(required=False)
 
     def validate(self, attrs):
-        # Support login by email
-        if 'email' in attrs and 'username' not in attrs:
-            email = attrs.get('email')
-            try:
-                user = User.objects.get(email=email)
-                attrs['username'] = user.username
-            except User.DoesNotExist:
-                raise serializers.ValidationError({"detail": "No active account found with the given credentials"})
-            except User.MultipleObjectsReturned:
-                 raise serializers.ValidationError({"detail": "Multiple accounts found with this email"})
+        identifier = attrs.get('username') or attrs.get('email')
+        
+        if identifier:
+            if '@' in identifier:
+                try:
+                    user = User.objects.get(email=identifier)
+                    attrs['username'] = user.username
+                except User.DoesNotExist:
+                    raise serializers.ValidationError({"detail": "Aucun compte actif trouvé avec cet email."})
+                except User.MultipleObjectsReturned:
+                    raise serializers.ValidationError({"detail": "Plusieurs comptes associés à cet email."})
+            else:
+                attrs['username'] = identifier
 
-        # Ensure password is provided
         if 'password' not in attrs:
-             raise serializers.ValidationError({"password": "Password is required"})
+            raise serializers.ValidationError({"password": "Le mot de passe est requis."})
 
         try:
             data = super().validate(attrs)
